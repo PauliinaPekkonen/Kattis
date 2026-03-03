@@ -1,0 +1,151 @@
+
+ 
+/*Yläpalkki ja sen valikko päättyy tähän*/
+
+.content-container {
+    display: grid;
+    grid-template-columns: 200px 1fr; 
+    gap: 40px; /* Väli sidebarin ja tuotteiden välissä */
+    max-width: 1400px;
+    margin: 0 auto; /* Keskittää koko sisällön */
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.tuote-ruudukko { 
+    display: grid; 
+    /* grid määrittää että ruudukossa on useampi sarake */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+}
+
+.kategoria-valikko {
+    border: box-shadow;
+}
+
+h1 {
+    margin-bottom: 30px; 
+    font-size: 1.3em;
+}
+.sidebar {
+    display: flex; 
+    flex-direction: column; /* Asettaa sisällön allekkain */
+    justify-content: flex-start; 
+    padding-top: 80px;
+}
+body { 
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+} 
+.kategoria-otsikko {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.kategoria-linkki {
+    display: block; /* Tekee koko alueesta klikattavan */
+    padding: 10px 0px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+.kategoria-linkki:hover {
+    color: #E87A4F; 
+    background: #f2e9da;
+}
+.kategoria-linkki.aktiivinen {
+    font-weight: bold;
+    color: #E87A4F;
+}
+.tuote-kortti { 
+    display: relative;
+    text-decoration: none; 
+    border-radius: 10px; 
+    z-index: 9999;
+    pointer-events: auto;
+  
+} 
+.tuote-kortti:hover { 
+    transform: translateY(-3px);  
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+} 
+.tuote-kuva-alue { 
+    aspect-ratio: 1 / 1;  
+    overflow: hidden; 
+    width: 100%; 
+    background-color: #e6e6e6;  
+    /*Kun keskitän kuvan tekstin, tulee käyttää display flex ja justify content center, align item center*/ 
+    display: flex;    
+    justify-content: center; 
+    align-items: center; 
+} 
+.tuote-kuva { 
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+} 
+.tuote-tiedot { 
+    padding: 10px; 
+    text-align: center; 
+    min-height: 2.6em;
+} 
+.tuote-tiedot .hinta { 
+    font-weight: bold; 
+    color: black;
+    margin: 0; 
+} 
+
+.osta-nappi {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  pointer-events: auto;
+
+}
+.osta-nappi:hover {
+    color: #E87A4F; 
+    background: #f2e9da;
+}
+.osta-nappi.aktiivinen {
+    font-weight: bold;
+    color: #E87A4F;
+}
+
+
+@media (max-width: 768px) { 
+    .tuote-ruudukko { 
+        /* 1 sarake */
+        grid-template-columns: 1fr;  
+        width: 100%;
+        margin-right: 60px;
+    } 
+.content-container {
+        /* Muutetaan grid yhdeksi sarakkeeksi */
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px; /* marginaali reunoille */
+    }
+.sidebar {
+        padding-top: 20px; /* vähentää väliä yläpalkissa */
+        text-align: center; /* keskittää kategoriat mobiilissa keskelle */
+    }
+.kategoria-otsikko {
+        display: none; /*piilottaa otsikon mobiilissa */
+    }
+.kategoria-valikko {
+        display: flex;
+        flex-wrap: wrap; /* kategoriat rivittyy */
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+h1 {
+        font-size: 1.2rem; 
+        margin-bottom: 15px;
+        text-align: center; 
+        /* otsikko keskittyy keskelle mobiilissa */
+    }
+    
+}

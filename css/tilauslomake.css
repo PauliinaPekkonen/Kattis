@@ -1,0 +1,216 @@
+article,
+label,
+table {
+  font-family: Arial, sans-serif
+}
+
+article {
+  padding-top: 10px;
+}
+
+table {
+  margin: 10px 10px 10px;
+}
+
+/*varsinaisen sisällön keskittäminen näytölle, lisäksi otsikoiden erikoismuotoilu tilauslomakkeella*/
+#contentbox {
+  position: relative;
+  background-color: #FFF6E5;
+  width: 100%;
+  max-width: 800px;
+  margin: 60px auto 60px;
+
+  h1 {
+    padding-left: 10px;
+  }
+
+  h2 {
+    margin-top: 12px;
+    background-color: #f2dcb4;
+    padding-left: 10px;
+  }
+}
+
+/*asettelussa kaksi saraketta / palstaa leveillä näytöillä, yksi kapeammilla*/
+.two_columns {
+  padding: 0 10px 10px;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 350px));
+  gap: 20px;
+}
+
+/*kahden sarakkeen / palstan yhdistäminen yhdeksi "täysleveäksi" sarakkeeksi (elementti venyy koko gridin leveyden yli)*/
+.merged_columns {
+  grid-column: 1 / -1;
+}
+
+/*tekstin syöttökenttä koko grid-elementin levyinen, lukuun ottamatta paddingia*/
+.input_text {
+  width: 100%;
+  max-width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #4F2404;
+  border-radius: 6px;
+}
+
+/*muunnetaan check-boxin kokoa isommaksi ja asetellaan se siten, että label pääsee asettumaan sen viereen*/
+.input_checkbox {
+  width: auto;
+  display: inline-block;
+  transform: scale(1.5);
+  transform-origin: top left;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+}
+
+/*tekstin syöttökenttä koko grid-elementin levyinen, lukuun ottamatta paddingia. Varmistetaan lisäksi valkoinen taustaväri kaikilla selaimilla*/
+.input_select {
+  width: 100%;
+  max-width: 100%;
+  height: 44px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  border: 1px solid #4F2404;
+  border-radius: 6px;
+}
+
+/*säädetään numeroinput-kentän kokoa ja pakotetaan se asettumaan oikeaan reunaan myös kapeammilla näytöillä, jolloin taulukko muuttuu gridiksi*/
+.input_number {
+  width: 80px;
+  height: 44px;
+  padding: 10px 12px;
+  text-align: right;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #4F2404;
+  border-radius: 6px;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+/*painikkeiden erikoismuotoilut (leveys ja sijainti) muu muotoilu tulee "yhteinen.css"-tiedostosta*/
+.button {
+  width: 150px;
+  display: inline-block;
+}
+
+/*"esimuotoilu" tuotetaulukolle, myöhemmin erikseen määrittelyt leveämmälle ja kapeammalle näytölle*/
+.stacked {
+  width: calc(100% - 20px);
+  max-width: calc(100% - 20px);
+  border-collapse: collapse;
+  margin-inline: 10px;
+}
+
+/*"esimuotoilu" tuotetaulukon riveille ja soluille, myöhemmin erikseen määrittelyt leveämmälle ja kapeammalle näytölle*/
+.stacked th,
+.stacked td {
+  border: 1px solid #4F2404;
+  padding: 0.5rem;
+  padding-right: 10px;
+  text-align: right;
+}
+
+
+@media (min-width: 700px) {
+  .stacked {
+    /*100% miinus 10px + 10px marginaalit*/
+    max-width: calc(100% - 20px);
+  }
+
+  /*taulukon otsikot näytetään leveällä näytöllä normaalisti. Estetään ylivuoto overflow-wrapilla*/
+  .stacked thead {
+    display: table-header-group;
+    overflow-wrap: anywhere;
+  }
+
+  /*taulukon rivit näytetään leveällä näytöllä normaalisti. Estetään ylivuoto overflow-wrapilla*/
+  .stacked tr {
+    display: table-row;
+    overflow-wrap: anywhere;
+  }
+
+  /*taulukon solut näytetään leveällä näytöllä normaalisti. Estetään ylivuoto overflow-wrapilla*/
+  .stacked td {
+    display: table-cell;
+    overflow-wrap: anywhere;
+  }
+}
+
+/*tilauslomakkeen tuote-taulukon muotoilu kapeilla näytöillä siten, että sarakkeet pinoutuvat*/
+@media (max-width: 699px) {
+  /*varmistetaan tuotevalinnan minimileveys asettelun muuttuessa*/
+  .input_select {
+    min-width: 250px;
+  }
+
+  .stacked {
+    /*100% miinus 10px + 10px marginaalit*/
+    max-width: calc(100% - 20px);
+  }
+
+  .stacked thead {
+    /*piilotetaan taulukon ostikkorivi visuaalisesti mutta säilytetään ruudunlukijoille*/
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  /*muutetaan taulukon rivit blokiksi. Tasataan teksti lähtökohtaisesti oikeaan reunaan ja estetään ylivuoto overflow-wrapilla*/
+  .stacked tr {
+    display: block;
+    border: 1px solid #4F2404;
+    margin-block: 0.5rem;
+    padding: 0.5rem;
+    padding-right: 10px;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  /*muutetaan taulukon solut gridiksi kahteen sarakkeeseen. Estetään ylivuoto overflow-wrapilla*/
+  .stacked td {
+    display: grid;
+    /*toinen sarake vie tarvitsemansa tilan (mukautuu sisällön mukaan). Ensimmäinen sarake saa 1fr eli kaiken jäljellä olevan tilan. Label on ensimmäisessä sarakkeessa, sisältö toisessa*/
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    border: none;
+    padding: 0.25rem 0;
+    padding-right: 10px;
+    overflow-wrap: anywhere;
+    align-items: center;
+  }
+
+  .stacked td:last-child {
+    border-bottom: none;
+  }
+
+  /*tehdään data-labelista näkyvä ja asetetaan se ensimmäiseen sarakkeeseen. Tasataan teksti vasemmalle.*/
+  .stacked td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    justify-self: start;
+    grid-column: 1;
+  }
+
+  /*tasataan toisen sarakkeen sisältö oikealle (tämä periaatteessa oletuksena jo aiemmin määriteltynä, mutta "input type=number" halusi kapealla näytöllä sinnikkäästi silti sarakkeen keskelle.*/
+  .stacked td>* {
+    grid-column: 2;
+    justify-self: end;
+  }
+}
