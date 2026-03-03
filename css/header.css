@@ -1,0 +1,432 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/*Asettaa headerin taustavärin */
+header{
+ background-color: #FFF6E5;
+}
+
+
+/*poistaa listasta tyylittelyt, jolloin jäljelle jää teksti */
+li{
+    list-style: none;
+}
+
+
+/*asettaa linkin värin ja fontin */
+.navigointimenu .nav-item a{
+    text-decoration: none;
+    color:#4F2404;
+    font-family: 'Chewy';
+    font-size: 25px;
+    letter-spacing: 0.06em;
+} 
+
+.navigointimenu .nav-item a:hover{
+    color:#FF8A3D;
+    cursor: pointer;
+}    
+
+
+/*Asettaa määrittelyn sivun yläosan navigointipalkille. Joka sisältää otsikon, linkit ja hakupalkin.  
+Navigointipalkki on aina vähintään 100px, asettelu flexboxinmukaan. Sisältö levitetään reunoille ja keskitetään pystysuunnassa. 
+Jätetään tyhjää tilaa aina oikealle ja vasemmalle 24px */
+.navigointipalkki{
+    min-height: 100px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+
+/*Määrittää navigointimenun sisällön -> eli valikon jossa on linkit muille sivuille*/
+.navigointimenu{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px; 
+}
+
+/*navigointilinkki hover muuttaa linkin värin kun hiiren vie sen päälle ja navigointilinkin sisälä on määritelty miten värin muutos tapahtuu*/
+.navigointilinkki{
+    transition: 0.7s ease;
+}
+
+
+/*ankkuroidaan hakupalkin sijainti, jotta sen sisälle tulevat elementit voidaan sijoittaa hakupalkin sisään*/
+.hakupalkki{
+    position: relative;
+}
+
+/*hakupalkin tyylittelyt ja muotoilu, focus leventää hakupalkki kun se on aktiivisena*/
+.hakupalkki input{
+    width: 270px;
+    font-size: 14px; 
+    padding: 10px 20px;
+    border-radius: 10px; 
+    border: none;
+    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.3);
+    transition: 0.4s ease-in-out;
+}
+
+
+/*hakupalkin sisällä oleva suurennuslasi, asettelut ja tyyli*/
+.hakupalkki i{
+    position: absolute;
+    top: 50%; 
+    right: 20px; 
+    transform: translateY(-50%);
+    color:  #4F2404;
+    cursor: pointer;
+}
+
+/*hakupainikkeen tyylittelyt ja muotoilu, hakupainike näkyy vain mobiilissa, työpöytäversiossa se on piilotettu. 
+Hover-toiminto korostaa nappia hiiri viedään napin päälle*/
+.hakupainike-mobiili {
+    display: none;           
+    background-color: #4F2404;
+    border: none;
+    color: #FFF6E5;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hakupainike-mobiili:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+
+/*hakupainikkeen sulkemisen tyylittelyt ja muotoilu, näkyy vain mobiilissa, työpöytäversiossa se on piilotettu. */
+.cancel-btn{
+    display: none;           
+    background-color: #4F2404;
+    border: none;
+    color: #FFF6E5;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+
+/*hampurilaisvalikon tyylittelyt ja muotoilu, näkyy vain mobiilissa, työpöytäversiossa se on piilotettu.
+flex-direction -> asettaa sisällön pystysuuntaan päällekäin, align-items -> keskittää sisällön vaakasuunnassa, justify-content keskittää sisällön pystysuunnassa */
+.hampurilaisvalikko {
+    display: none;          
+    background-color: #4F2404;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.hampurilaisvalikko:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+
+/*hampurilaisvalikon viivojen tyylittely*/
+.bar {
+    width: 18px;
+    height: 2px;
+    margin: 3px 0;
+    background-color: #FFF6E5;
+    border-radius: 2px;
+}
+
+/*logokuvan leveys ja asettelu */
+.logokuva{
+    height: auto;
+    width: 250px;
+}
+
+/*Liittyy mobiilinäkymän ikoneihin, jotka on työpöytänäkymässä piilotettu */
+.oikea-puoli {
+    display: none;           
+}
+
+
+/*bannerin tyylittelyt */
+.info-banner{
+    width: 100%;
+    background: #2f7d32;      
+    color: #fff;
+    padding: 10px 16px;
+    text-align: center;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 8px;
+}
+
+/*contact-section taustaväri ja asettelu */
+.contact{
+    background-color: #FFF6E5;
+    padding: 60px 20px; 
+    text-align: center;
+}
+
+/*container div leveys */
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+.container h2{
+    margin-bottom: 40px;
+}
+
+/* Footerin asettelu */
+.contact-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+    justify-items: center;
+}
+
+/* yhteydeonottolomakkeen tekstin asettelu */
+.contact-form{
+    text-align: left;
+}
+
+.contact-form h3{
+    margin-bottom: 20px;
+}
+
+/* form-group divin asettelu */
+.form-group{
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* lomakkeen input tekstien ja laatikoiden asettelu */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea{
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    color:#301704;
+}
+
+/* lisää tekstikenttään varjon kun aktiivinen */
+input:focus,
+textarea:focus{
+    outline: none;
+    box-shadow: 0 0 8px #bbb;
+}
+
+/* check-boxin asettelu */
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+/* checkboxin viereisen tekstin asettelu */
+.checkbox label{
+    display: inline;
+}
+
+/* Lähetä viesti-painikkeen asettelu */
+.form-group button{
+    padding: 10px 10px;
+    border: 2px solid transparent;
+}
+
+/* contact-info divin tekstin asettely */
+.contact-info{
+    text-align: left;
+}
+
+.contact-info h3{
+    margin-bottom: 20px;
+}
+
+.contact-info p{
+    margin-bottom: 10px;
+}
+
+.contact-info i{
+    margin-right: 10px;
+}
+
+/* yhteydenottolomakkeen ja yhteystietojen asettelu */
+.contact-form,
+.contact-info{
+    width: 100%;
+    max-width: 420px;
+}
+
+
+@media screen and (max-width:1024px){
+
+    /*Asettaa mobiilinäkymässä suurennuslasin ja hampurilaisvalikkoikonin oikealle puolelle ruutua */
+    .oikea-puoli {
+        display: flex;
+        align-items: center;
+        gap: 20px; 
+    }
+
+     /*Piilottaa hakupalkin mobiilinäkymässä */    
+    .hakupalkki {
+        display: none;
+    }
+
+    /*Tuo hakupalkin näkyviin mobiilinäkymässä, kun palkki klikataan aktiiviseksi, linkittyy javascriptiin */
+    .hakupalkki.active {
+        display: flex;
+        margin-bottom: 12px;
+    }
+
+    /*Hakupainikkeen asettelu mobiilissa */
+    .hakupainike-mobiili {
+        display: inline-flex;
+    }
+
+
+    /*Tuo hakupalkin ruksin näkyviin mobiilinäkymässä, kun hakupalkki avataan.*/
+    .cancel-btn.active {
+        display: inline-flex;
+    }
+
+    /*Tuo hakupalkin ruksin korostus kun hiiri viedään kohdalle. */
+    .cancel-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+    }
+
+    /*Hakupainikkeen klikkaaminen asettaa arvon hidden ja palkki katoaa. */
+    .oikea-puoli.hidden {
+        display: none;
+    }
+
+    /*Tuo hampurilaisvalikon näkyväksi. */    
+    .hampurilaisvalikko{
+        display: flex;
+    }
+
+    /*Muuttaa hampurilaisikonin ruksiksi. Piilottaa keskimmäisen viivan ja kääntää ylimmän ja alimman viivan ristiin.*/ 
+    .hampurilaisvalikko.active .bar:nth-child(2){
+        opacity: 0;  
+    }
+
+    .hampurilaisvalikko.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hampurilaisvalikko.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /*Hampurilaispainikkeesta avautuva navigointimenu -> valikko lukittautuu sivun yläosaan eikä skrollaannu mukaan (absolute)
+    z-indeksi määrittelee sen että menu aukeaa muiden elementtien päälle. Navigointimenu asettuu suoraan headerin alle, ei sen päälle tai jätä tyhjää väliä
+    left 100% siirtää valikot pois ruudulta näkyvistä ennen kuin navigointimenu on aktiivinen.*/
+    .navigointimenu{
+        position: absolute;
+        z-index: 9999;
+        left: -100%;
+        top: 100px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #FFF6E5;
+        width: 100%;
+        text-align: center;
+        transition: 0.4s;
+    }
+
+    /*Mobiilivalikon linkkien asettelu*/
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    /*kun hampurilaisvalikko valitaan aktiiviseksi, muuttuu myös navigointimenu aktiiviseksi ja tulee näkyviin*/
+    .navigointimenu.active{
+        left: 0;
+    }
+
+   /* Footerin asettelu mobiilissa */
+    .contact-wrapper{
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    /* tekstikentän maksimileveys mobiilissa */
+     input, textarea{
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    /* yhteydenottolomakkeen ja yhteystietojen asettelu mobiilissa */
+    .contact-form,
+    .contact-info{
+        text-align: center;
+    }
+
+}
+    
+
+@media (max-width: 600px) {
+  
+    /* navigointipalkin asettelu mobiiliruudulle */
+    .navigointipalkki{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;              
+        gap: 10px;
+    }
+
+    /*Order asettaa flex-itemit oikeaan järjestykseen ruudulla*/
+    .logokuva{
+        order: 1;
+    }
+
+    .oikea-puoli{
+        order: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;            
+    }
+
+    .hakupalkki{
+        order: 3;
+        width: 100%;                  
+    }
+
+    .hakupalkki input{
+        width: 100%;
+    }
+    .navigointimenu{
+        order: 4;
+        width: 100%;
+    }
+
+}

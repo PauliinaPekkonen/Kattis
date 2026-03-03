@@ -1,0 +1,84 @@
+/* Yleismäärittely kaikille elementeille (resetti) */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+/* Tyylit containerille, joka rajoittaa sisällön leveyttä */
+.small-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* Tuotesivun pääkontainerin ylämarginaali */
+.tuotesivu{
+    margin-top:80px;
+}
+/* Tuotesivun toisen sarakkeen (col-2) sisällä olevan kuvan tyyli */
+.tuotesivu .col-2 img{
+    padding: 0;
+}
+/* Tuotesivun toisen sarakkeen (col-2) tyyli */
+.tuotesivu .col-2{
+    padding: 20px;
+}
+/* Tuotesivun h3-otsikon tyyli */
+.tuotesivu h3{
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+/* Tuotesivun syötekentän (input) tyyli */
+.tuotesivu input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 3px solid#4F2404;
+}
+input {
+    outline: none;
+    border-radius: 15px;
+    transition: border-radius 0s;
+
+}
+/* Pikkukuvien rivin asettelu (Flexbox) */
+.pienikuva-rivi{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.pienikuva-col{
+    flex-basis: 25%;
+    cursor: pointer;
+
+}
+/* Painikkeen (button) tyyli */
+.button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    margin: 30px 0;
+  
+}
+.rivi {
+    display: flex; 
+    justify-content: space-around;
+}
+/* Kolmannen sarakkeen (col-3) sisällä olevan kuvan tyyli */
+.col-3{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+.col-3 img{
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 3 / 4 ;
+}    
