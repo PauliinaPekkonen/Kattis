@@ -1,0 +1,231 @@
+<!DOCTYPE html> 
+<html lang="fi"> 
+<head> 
+
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <link rel="stylesheet" type="text/css" href="../css/yhteinen.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/tuotesivu.css">
+    <link rel="stylesheet" type="text/css" href="../css/tilauslomake.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/css.css">
+
+    <link rel="icon" type="image/jpg" href="kattislogo2.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Kattis - Lemmikkisi hyvinvointiin</title> 
+
+<header>
+    <nav class="navigointipalkki">
+         <a href="index.html" target="Kattis">
+        <img src="../images/kattislogo2.jpg" alt="Kattis-kaupan logo" class="logokuva">
+        </a> 
+
+    <div class="hakupalkki">
+        <input type="text" placeholder="Hae sivustolta...">
+        <i class="fa fa-search"> </i>
+    </div>
+
+    <ul class="navigointimenu">
+        <li class="nav-item">
+        <a href="index.html" class="navigointilinkki">Etusivu</a>
+        </li>
+        <li class="nav-item">
+        <a href='katalogi.html' class="navigointilinkki">Tuotteet</a>
+        </li>
+        <li class="nav-item">
+        <a href='tilauslomake.html' class="navigointilinkki">Tilaus</a>
+        </li>
+        <li class="nav-item">
+        <a href='#contact' class="navigointilinkki">Contact</a>
+        </li>
+    </ul>
+   
+
+    <div class = "oikea-puoli">
+        <button class="hakupainike-mobiili">
+        <i class="fa fa-search"> </i>
+        </button>
+        <div class="hampurilaisvalikko">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+<div class="cancel-btn">
+<i class="fas fa-times"></i> 
+</div>
+</nav>
+</header>
+<!--Banneri-->
+<div class="info-banner">
+  Ilmaiset toimitukset joulukuussa yli 55€:n ostoksiin 🎁
+</div>
+
+        <script src="../javascript/etusivujs.js" defer></script>
+        <script src='../javascript/katalogi.js' defer></script> 
+        <script src='../javascript/tuotesivu.js' defer></script> 
+        <script src='../javascript/tilauslomake.js' defer></script>
+
+</head> 
+<body> 
+
+  <!-- div class content container pakottaa tuoteruudukon ja sidebarin pienempään asetteluun sivun keskelle, samoin div sidebarin jälkeen--> 
+<div class="content-container"> 
+  <!-- Kategoriavalikon painikkeet alkaa --> 
+ <div class="sidebar">
+  <div class="kategoria-valikko">
+
+  <h2 class="kategoria-otsikko">Kategoriat</h2>
+
+   <div id="napit"></div>
+    <a href="#" class="kategoria-linkki"data-filter="kaikki"><i class="fa-solid fa-bag-shopping"></i> Kaikki tuotteet</a>
+    <a href="#" class="kategoria-linkki"data-filter="kissat"><i class="fa-solid fa-cat"></i> Kissat</a>
+    <a href="#" class="kategoria-linkki"data-filter="koirat"><i class="fa-solid fa-dog"></i> Koirat</a>
+
+ </div>
+
+ <!-- Kategoriavalikon painikkeet loppuu --> 
+<!-- Tuotekuvat ja tiedot ruudukossa--> 
+
+</div> <main class="kategoria-sisalto"> 
+  <h1>Tuotteet</h1> 
+    <div id="tuote-container" class="tuote-ruudukko"> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue">
+    <img src="../images/hiekkalaatikko2.jpg" alt="Hiekkalaatikko2" class="tuote-kuva"></div> 
+      <div class="tuote-tiedot"> 
+
+    <h3>Kissan hiekkalaatikko</h3><p class="hinta">100 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="koirat">
+  <div class="tuote-kuva-alue">
+  <img src="../images/kuivaruoka.jpg" alt="kuivaruoka" class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Koiran kuivaruoka</h3><p class="hinta">29,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/hihna.jpg" alt="hihna"  class="tuote-kuva"></div> 
+    <div class="tuote-tiedot"> 
+
+    <h3>Hihna</h3><p class="hinta">19,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="koirat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/köysilelu.jpg" alt="köysilelu"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+<h3>Koiran köysilelu</h3><p class="hinta">5,99 €</p></div>
+<button class="osta-nappi">Osta</button>
+</a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/joulupanta.jpg" alt="joulupanta"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Kissan joulupanta</h3><p class="hinta">9,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/kissanherkku.jpg" alt="kissanherkku"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Kissan herkku</h3><p class="hinta">3,99 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/kissanpuu.jpg" alt="kissanpuu"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Kissan puu</h3><p class="hinta">29,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/minttuhiiri.jpg" alt="minttuhiiri"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Kissanminttuhiiri</h3><p class="hinta">9,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+
+<a href="#" class="tuote-kortti" data-kategoria="kissat">
+  <div class="tuote-kuva-alue"> 
+  <img src="../images/valjaat.jpg" alt="valjaat"  
+  class="tuote-kuva"></div> 
+  <div class="tuote-tiedot"> 
+
+    <h3>Kissan valjaat</h3><p class="hinta">19,90 €</p></div>
+    <button class="osta-nappi">Osta</button>
+  </a> 
+</div> 
+
+  <!-- Tuotteet ruudukossa loppuu --> 
+
+ </main> 
+ </div> 
+ <footer>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Ota yhteyttä</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-form">
+                        <h3>Lähetä meille viesti</h3>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Nimesi">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Sähköpostiosoitteesi">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="viesti" placeholder="Kirjoita viestisi tähän..."></textarea>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" name="checkbox">
+                                <label for="checkbox">Liity postituslistalle</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit">Lähetä viesti</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Yhteystiedot</h3>
+                        <p><i class="fas fa-phone"></i>040 123 4567</p>
+                        <p><i class="fas fa-envelope"></i>info@kattis.fi</p>
+                        <p><i class="fas fa-map-marker-alt"></i>Kattiskuja 12, 12345 Kattismaa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body> 
+</html> 

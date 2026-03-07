@@ -1,0 +1,215 @@
+ *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: #FFF6E5; 
+}
+
+#contentbox{
+    position: relative;
+    background-color: #FFF6E5;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0px auto 0px;
+}
+
+.hero-section{
+    background-color:#FFF6E5;
+}
+
+.hero-section .section-content{
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 60px 40px;
+    gap: 40px;
+}
+
+.hero-details{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+.otsikko{
+    font-size: 40px;  
+    color:rgba(201, 146, 29, 0.904)  ;
+    font-family:Arial, Helvetica, sans-serif
+} 
+
+.alaotsikko{
+    max-width: 70%;
+
+} 
+
+.hero-section .hero-details .kuvaus{
+    max-width: 70%;
+    font-size: 18px;  
+    color:rgba(201, 146, 29, 0.904)  ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+
+.hero-section .hero-details .button{
+    padding: 10px 10px;
+    border: 2px solid transparent;
+    }
+
+.buttons{
+    display: flex;
+    gap: 16px;        
+    margin-top: 16px; 
+}
+
+.hero-section .hero-kuva{
+    width: 100%;
+    max-width: 420px;  
+    height: auto;
+}
+   
+
+
+/* TUOTEVALIKON TYYLIT */
+
+.tuotevalikko-osio{
+    color: #4F2404;
+    background-color: #FFF6E5;
+    padding: 50px 0 100px;
+}
+
+.tuotevalikko-osio .valikon-otsikko{
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+
+
+.tuotevalikko-osio .tuotelista{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 110px;
+    justify-content: center;
+    list-style: none;
+}
+
+.tuotevalikko-osio .tuotelista .tuote{
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(100% / 3 - 110px)
+}
+
+.hinta{
+  font-size: 16px;
+  font-weight: 600;
+  color: #6A3A0A;
+  margin-bottom: 8px;
+}
+
+
+.tuotevalikko-osio .tuotelista .tuote .tuotekuvaus{
+    font-size: 16px;
+    text-align: center;
+}
+
+.tuotevalikko-osio .tuotelista .tuote .tuotekuva{
+    width: 100%;
+    height: 220px;
+    display: block;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.tuotevalikko-osio .tuotelista .tuote .tuotenimi{
+    margin: 12px 0;
+    font-size: 20px;
+    font-weight:  normal;
+}
+
+
+
+@media screen and (max-width:1024px){ 
+
+   
+    .hero-section .section-content{
+        gap: 15px;
+        padding: 30px 20px 20px;
+        flex-direction: column-reverse;
+        text-align: center; 
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    .hero-section .hero-kuva{ 
+        max-width: 260px;
+        width: 100%;
+        height: auto;          
+        display: block;            
+        margin: 0 auto;
+    }
+
+    .hero-section .hero-details :is(.alaotsikko, .kuvaus){
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .buttons{
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 24px;  
+    }
+
+    .tuotevalikko-osio .tuotelista{
+        flex-direction: column; 
+        align-items: center; 
+        gap: 30px; 
+    }
+    
+    .tuotevalikko-osio .tuotelista .tuote{
+        width: 100%; 
+        max-width: 360px; 
+        margin-bottom: 30px; 
+    }
+
+
+    .tuotevalikko-osio .tuotelista .tuote img{
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+ 
+    .tuotevalikko-osio .tuotelista{
+        flex-direction: column;  
+        align-items: center;
+        gap: 24px;
+    }
+    .tuotevalikko-osio .tuote{
+        width: 100%;
+        max-width: 360px;
+    }
+    
+
+    .tuotevalikko-osio .tuotelista .tuote{
+        width: 100%;
+        max-width: 320px;
+        margin-bottom: 24px;
+    }
+
+   
+}

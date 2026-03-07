@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel='stylesheet' type='text/css' href="../css/yhteinen.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/etusivu.css">
+    <link rel='stylesheet' type='text/css' href="../css/header.css">
+    <link rel="icon" type="image/jpg" href="../images/kattislogo.jpg">
+    <link rel='stylesheet' type='text/css' href="../css/tilauslomake.css">
+    <title>Kattis - Lemmikkisi hyvinvointiin</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navigointipalkki">
+            <a href="index.html" target="Kattis">
+                <img src="../images/kattislogo2.jpg" alt="Kattis-kaupan logo" class="logokuva">
+            </a>
+
+            <div class="hakupalkki">
+                <input type="text" placeholder="Hae sivustolta...">
+                <i class="fa fa-search"> </i>
+            </div>
+
+
+            <ul class="navigointimenu">
+                <li class="nav-item">
+                    <a href="index.html" class="navigointilinkki">Etusivu</a>
+                </li>
+                <li class="nav-item">
+                    <a href='katalogi.html' class="navigointilinkki">Tuotteet</a>
+                </li>
+                <li class="nav-item">
+                    <a href='tilauslomake.html' class="navigointilinkki">Tilaus</a>
+                </li>
+                <li class="nav-item">
+                    <a href='#contact' class="navigointilinkki">Contact</a>
+                </li>
+            </ul>
+
+
+            <div class="oikea-puoli">
+                <button class="hakupainike-mobiili">
+                    <i class="fa fa-search"> </i>
+                </button>
+                <div class="hampurilaisvalikko">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+            <div class="cancel-btn">
+                <i class="fas fa-times"></i>
+            </div>
+        </nav>
+    </header>
+    <!--Banneri-->
+    <div class="info-banner">
+        Ilmaiset toimitukset joulukuussa yli 55€:n ostoksiin 🎁
+    </div>
+
+
+    <script src="../javascript/etusivujs.js"></script>
+    <script src="../javascript/tilauslomake.js"></script>
+
+    <!--Contentbox sisältää sivun varsinaisen sisällön ja keskittää sen leveillä näytöillä-->
+    <div id="contentbox">
+        <h1>Tilauslomake</h1>
+        <!--resetTotals()-metodi nollaa lomakkeelta myös sille javascriptilla lasketut arvot-->
+        <form id="tilauslomake" action="https://printvalues.ew.r.appspot.com/printvalues" method="post"
+            onreset="resetTotals();">
+            <h2>Tilaaja</h2>
+            <section class="two_columns">
+                <article>
+                    <label for="orderer_first_name">Etunimi:</label><br>
+                    <input class="input_text" type="text" id="orderer_first_name" name="orderer_first_name" value=""
+                        required>
+                </article>
+                <article>
+                    <label for="orderer_last_name">Sukunimi:</label><br>
+                    <input class="input_text" type="text" id="orderer_last_name" name="orderer_last_name" value=""
+                        required>
+                </article>
+                <article>
+                    <label for="orderer_email">Email:</label><br>
+                    <input class="input_text" type="email" id="orderer_email" name="orderer_email" value="" required>
+                </article>
+                <article class="solu">
+                    <label for="orderer_phone">Puhelinnumero:</label><br>
+                    <input class="input_text" type="tel" id="orderer_phone" name="orderer_phone" value="" required
+                        placeholder="+358 ">
+                </article>
+            </section>
+
+            <h2>Toimitusosoite</h2>
+            <section class="two_columns">
+                <article class="merged_columns">
+                    <label for="delivery_address">Katuosoite:</label><br>
+                    <input class="input_text" type="text" id="delivery_address" name="delivery_address" value=""
+                        required>
+                </article>
+                <article class="merged_columns">
+                    <label for="delivery_address2">Katuosoite 2:</label><br>
+                    <input class="input_text" type="text" id="delivery_address2" name="delivery_address2" value="">
+                </article>
+                <article>
+                    <label for="delivery_post_code">Postinumero:</label><br>
+                    <input class="input_text" type="text" id="delivery_post_code" name="delivery_post_code" value=""
+                        required>
+                </article>
+                <article>
+                    <label for="delivery_post_area">Postitoimipaikka:</label><br>
+                    <input class="input_text" type="text" id="delivery_post_area" name="delivery_post_area" value=""
+                        required>
+                </article>
+            </section>
+
+            <h2>Maksaja</h2>
+            <section class="two_columns">
+                <article class="merged_columns">
+                    <!--autofillPayer()-metodi täydentää automaattiseti maksajan tiedot tilaajan tiedoilla-->
+                    <input class="input_checkbox" type="checkbox" id="same_as_orderer" name="same_as_orderer"
+                        value="Sama kuin tilaaja" onclick="autofillPayer();">
+                    <label for="same_as_orderer">Sama kuin tilaaja</label><br>
+                </article>
+                <article>
+                    <label for="payer_first_name">Etunimi:</label><br>
+                    <input class="input_text" type="text" id="payer_first_name" name="payer_first_name" value=""
+                        required>
+                </article>
+                <article>
+                    <label for="payer_last_name">Sukunimi:</label><br>
+                    <input class="input_text" type="text" id="payer_last_name" name="payer_last_name" value="" required>
+                </article>
+            </section>
+
+            <h2>Laskutusosoite</h2>
+            <section class="two_columns">
+                <article class="merged_columns">
+                    <!--autofillInvoicingAddress()-metodi täydentää automaattiseti laskutusosoitteen tiedot toimitusosoitteen tiedoilla-->
+                    <input class="input_checkbox" type="checkbox" id="same_as_delivery"
+                        name="same_as_delivery" value="Sama kuin toimitusosoite" onclick="autofillInvoicingAddress();">
+                    <label for="same_as_delivery">Sama kuin toimitusosoite</label><br>
+                </article>
+                <article class="merged_columns">
+                    <label for="invoicing_address">Katuosoite:</label><br>
+                    <input class="input_text" type="text" id="invoicing_address" name="invoicing_address" value=""
+                        required>
+                </article>
+                <article class="merged_columns"><label for="invoicing_address2">Katuosoite 2:</label><br>
+                    <input class="input_text" type="text" id="invoicing_address2" name="invoicing_address2" value="">
+                </article>
+                <article><label for="invoicing_post_code">Postinumero:</label><br>
+                    <input class="input_text" type="text" id="invoicing_post_code" name="invoicing_post_code" value=""
+                        required>
+                </article>
+                <article><label for="invoicing_post_area">Postitoimipaikka:</label><br>
+                    <input class="input_text" type="text" id="invoicing_post_area" name="invoicing_post_area" value=""
+                        required>
+                </article>
+            </section>
+
+            <h2>Tuotteet</h2>
+            <table class="stacked">
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">tuote</th>
+                        <th>määrä</th>
+                        <th>hinta</th>
+                        <th>yhteensä</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!--setPrice('n')-metodi laskee riville hinnan ja yhteissumman. Lisäksi se kutsuu metodia, joka laskee koko lomakkeen loppusumman ja alvin sekä toimituskulut-->
+                        <td data-label="tuote1">
+                            <select class="input_select" id="product1" name="product1" onchange="setPrice('1');">
+                                <option value="">valitse</option>
+                                <option value="hihna">Hihna</option>
+                                <option value="hiekkalaatikko">Hiekkalaatikko</option>
+                                <option value="kissan_herkku">Kissan herkku</option>
+                                <option value="kissan_joulupanta">Kissan joulupanta</option>
+                                <option value="kissan_valjaat">Kissan valjaat</option>
+                                <option value="kissanminttuhiiri">Kissanminttuhiiri</option>
+                                <option value="kissan_puu">Kissanpuu</option>
+                                <option value="koiran_kuivaruoka">Koiran kuivaruoka</option>
+                                <option value="koiran_koysilelu">Koiran köysilelu</option>
+                            </select>
+                        </td>
+                        <td data-label="määrä">
+                            <input class="input_number" id="quantity1" name="quantity1" type="number" value="1" min="1"
+                                onchange="setPrice('1');">
+                        </td>
+                        <td data-label="hinta">
+                            <div id="price1" name="price1">0,00</div>
+                        </td>
+                        <td data-label="yhteensä">
+                            <div id="sum1" name="sum1">0,00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="tuote2">
+                            <select class="input_select" id="product2" name="product2" onchange="setPrice('2');">
+                                <option value="">valitse</option>
+                                <option value="hihna">Hihna</option>
+                                <option value="hiekkalaatikko">Hiekkalaatikko</option>
+                                <option value="kissan_herkku">Kissan herkku</option>
+                                <option value="kissan_joulupanta">Kissan joulupanta</option>
+                                <option value="kissan_valjaat">Kissan valjaat</option>
+                                <option value="kissanminttuhiiri">Kissanminttuhiiri</option>
+                                <option value="kissan_puu">Kissanpuu</option>
+                                <option value="koiran_kuivaruoka">Koiran kuivaruoka</option>
+                                <option value="koiran_koysilelu">Koiran köysilelu</option>
+                            </select>
+                        </td>
+                        <td data-label="määrä">
+                            <input class="input_number" id="quantity2" name="quantity2" type="number" value="1" min="1"
+                                onchange="setPrice('2');">
+                        </td>
+                        <td data-label="hinta">
+                            <div id="price2" name="price2">0,00</div>
+                        </td>
+                        <td data-label="yhteensä">
+                            <div id="sum2" name="sum2">0,00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="tuote3">
+                            <select class="input_select" id="product3" name="product3" onchange="setPrice('3');">
+                                <option value="">valitse</option>
+                                <option value="hihna">Hihna</option>
+                                <option value="hiekkalaatikko">Hiekkalaatikko</option>
+                                <option value="kissan_herkku">Kissan herkku</option>
+                                <option value="kissan_joulupanta">Kissan joulupanta</option>
+                                <option value="kissan_valjaat">Kissan valjaat</option>
+                                <option value="kissanminttuhiiri">Kissanminttuhiiri</option>
+                                <option value="kissan_puu">Kissanpuu</option>
+                                <option value="koiran_kuivaruoka">Koiran kuivaruoka</option>
+                                <option value="koiran_koysilelu">Koiran köysilelu</option>
+                            </select>
+                        </td>
+                        <td data-label="määrä">
+                            <input class="input_number" id="quantity3" name="quantity3" type="number" value="1" min="1"
+                                onchange="setPrice('3');">
+                        </td>
+                        <td data-label="hinta">
+                            <div id="price3" name="price3">0,00</div>
+                        </td>
+                        <td data-label="yhteensä">
+                            <div id="sum3" name="sum3">0,00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="tuote4">
+                            <select class="input_select" id="product4" name="product4" onchange="setPrice('4');">
+                                <option value="">valitse</option>
+                                <option value="hihna">Hihna</option>
+                                <option value="hiekkalaatikko">Hiekkalaatikko</option>
+                                <option value="kissan_herkku">Kissan herkku</option>
+                                <option value="kissan_joulupanta">Kissan joulupanta</option>
+                                <option value="kissan_valjaat">Kissan valjaat</option>
+                                <option value="kissanminttuhiiri">Kissanminttuhiiri</option>
+                                <option value="kissan_puu">Kissanpuu</option>
+                                <option value="koiran_kuivaruoka">Koiran kuivaruoka</option>
+                                <option value="koiran_koysilelu">Koiran köysilelu</option>
+                            </select>
+                        </td>
+                        <td data-label="määrä">
+                            <input class="input_number" id="quantity4" name="quantity4" type="number" value="1" min="1"
+                                onchange="setPrice('4');">
+                        </td>
+                        <td data-label="hinta">
+                            <div id="price4" name="price4">0,00</div>
+                        </td>
+                        <td data-label="yhteensä">
+                            <div id="sum4" name="sum4">0,00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="tuote5">
+                            <select class="input_select" id="product5" name="product5" onchange="setPrice('5');">
+                                <option value="">valitse</option>
+                                <option value="hihna">Hihna</option>
+                                <option value="hiekkalaatikko">Hiekkalaatikko</option>
+                                <option value="kissan_herkku">Kissan herkku</option>
+                                <option value="kissan_joulupanta">Kissan joulupanta</option>
+                                <option value="kissan_valjaat">Kissan valjaat</option>
+                                <option value="kissanminttuhiiri">Kissanminttuhiiri</option>
+                                <option value="kissan_puu">Kissanpuu</option>
+                                <option value="koiran_kuivaruoka">Koiran kuivaruoka</option>
+                                <option value="koiran_koysilelu">Koiran köysilelu</option>
+                            </select>
+                        </td>
+                        <td data-label="määrä">
+                            <input class="input_number" id="quantity5" name="quantity5" type="number" value="1" min="1"
+                                onchange="setPrice('5');">
+                        </td>
+                        <td data-label="hinta">
+                            <div id="price5" name="price5">0,00</div>
+                        </td>
+                        <td data-label="yhteensä">
+                            <div id="sum5" name="sum5">0,00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="bold">
+                            arvonlisävero
+                        </td>
+                        <td id="vat" class="bold">
+                            0,00
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="bold">
+                            toimituskulut
+                        </td>
+                        <td id="shipping" class="bold">
+                            7,50
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="bold">
+                            loppusumma
+                        </td>
+                        <td id="grand_total" class="bold">
+                            7,50
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <input class="button" type="submit" name="ok" value="Lähetä tilaus">
+            <input class="button" type="reset" value="Tyhjennä lomake">
+        </form>
+    </div>
+    <footer>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Ota yhteyttä</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-form">
+                        <h3>Lähetä meille viesti</h3>
+                        <form id="yhteydenotto" action="https://printvalues.ew.r.appspot.com/printvalues" method="post">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Nimesi">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Sähköpostiosoitteesi">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="viesti" placeholder="Kirjoita viestisi tähän..."></textarea>
+                            </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="checkbox" name="checkbox">
+                                <label for="checkbox">Liity postituslistalle</label>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit">Lähetä viesti</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Yhteystiedot</h3>
+                        <p><i class="fas fa-phone"></i>040 123 4567</p>
+                        <p><i class="fas fa-envelope"></i>info@kattis.fi</p>
+                        <p><i class="fas fa-map-marker-alt"></i>Kattiskuja 12, 12345 Kattismaa</p>
+                        <a href="index.html">
+                            <img src="../images/kattislogo.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+
+</html>
