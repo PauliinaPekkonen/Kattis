@@ -82,3 +82,8 @@ input {
     height: auto;
     aspect-ratio: 3 / 4 ;
 }    
+
+.tuotenro {
+    color: grey;
+    font-size: xx-small;
+}
