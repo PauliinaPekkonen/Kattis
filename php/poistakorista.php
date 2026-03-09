@@ -4,7 +4,7 @@ try{
 $yhteys = mysqli_connect("localhost", "trtkm25b3_5", "LoOcNj7g", "trtkm25b3_5");
 }
 catch(Exception $e){
-    header("Location:../html/yhteysvirhe.html");
+    header("Location:../../html/yhteysvirhe.html");
     exit;
 }
 $id=isset($_GET["id"]) ? $_GET["id"] : 0;

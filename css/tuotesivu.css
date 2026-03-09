@@ -63,8 +63,15 @@ input {
     display: inline-block;
     padding: 8px 30px;
     margin: 30px 0;
-  
+    flex-shrink: 0;
+    width: fit-content;
+    white-space: nowrap;
+    max-width: none;
 }
+input.button {
+    width:auto;
+}
+
 .rivi {
     display: flex; 
     justify-content: space-around;
@@ -81,9 +88,57 @@ input {
     max-width: 250px;
     height: auto;
     aspect-ratio: 3 / 4 ;
-}    
+}   
 
-.tuotenro {
-    color: grey;
-    font-size: xx-small;
+
+.arvostelu-taulukko {
+    width: 100%;
+    border-radius: 10px;
+    font-family: Arial, sans-serif; 
+    font-size: 16px;               
 }
+
+
+/* Itse taulukko */
+.arvostelu-taulukko {
+  width: 100%;
+  border-collapse: collapse;     /* jotta vierekkäisten solujen reunat yhdistyvät */
+  border: 1px solid #ddd;        /* ulkoreuna */
+  border-radius: 10px;           /* kaarevat kulmat */
+  overflow: hidden;              /* pitää kulmat siisteinä */
+  background: #fff;
+}
+
+/* Otsikkosolut */
+.arvostelu-taulukko th {
+  padding: 12px;
+  text-align: left;
+  background: #f6f6f6;
+  border-bottom: 1px solid #ddd; /* viiva otsikkorivin alle */
+  border-right: 1px solid #eee;  /* pystylinjat */
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: Arial, sans-serif;
+}
+
+/* Datarivit */
+.arvostelu-taulukko td {
+  padding: 12px;
+  border-top: 1px solid #eee;    /* vaakaviivat rivien väliin */
+  border-right: 1px solid #eee;  /* pystylinjat */
+  color: #333;
+}
+
+/* Poista viimeisen solun oikea reuna (valinnainen siistintä) */
+.arvostelu-taulukko th:last-child,
+.arvostelu-taulukko td:last-child {
+  border-right: none;
+}
+
+
+.arvostelu-taulukko {
+  border: 2px solid #ccc;              /* paksumpi ulkoreuna */
+  box-shadow: 0 2px 10px rgba(0,0,0,.06); /* halutessasi varjo */
+}
+
+

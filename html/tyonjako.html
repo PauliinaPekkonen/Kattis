@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 <link rel='stylesheet' type='text/css' href="../css/header.css">
 <link rel='stylesheet' type='text/css' href="../css/contact.css">
-<link rel='stylesheet' type='text/css' href="../css/tuotesivu.css">
+<link rel='stylesheet' type='text/css' href="../css/tilauslomake.css">
 <link rel="icon" type="image/jpg" href="../images/kattislogo.jpg">
 <title>Kattis - Lemmikkisi hyvinvointiin</title>
 </head>
@@ -64,8 +64,23 @@
   Ilmaiset toimitukset joulukuussa yli 55€:n ostoksiin 🎁
 </div>
 
-<div>
-    Yhteysvirhe, yritä uudelleen.
+<div id="contentbox">
+    <strong>Piia:</strong><br>
+    <br>
+    <strong>Pauliina:</strong><br>
+    <br>
+    <strong>Effia:</strong><br>
+    <br>
+    <strong>Heini:</strong><br>
+    Tuotesivuilla <a href=http://shell.hamk.fi/~trtkm25b_5/html/tuote100002.html>(tuote100002)</a> ja 
+    <a href=http://shell.hamk.fi/~trtkm25b_5/html/tuote100007.html>(tuote100007)</a> php-ohjelma
+    hakee tuotteen hinnan tietokannan tuote-taulusta ja se tulostetaan näkyviin AJAXilla. 
+    "Lisää ostoskoriin" -painike lisää valinnan mukaisen määrän tuotetta tietokannan ostoskori-tauluun 
+    ja php ohjaa käyttäjän ostoskori-sivulle.<br>
+    <a href=http://shell.hamk.fi/~trtkm25b_5/html/ostoskori.html>Ostoskorisivulle</a> siirryttäessä 
+    AJAX/php päivittää ostoskori-taulun sisällön näkyviin verkkosivulle ja laskee välisummat, alvin ja toimituskulut. 
+    Sivulla olevilla painikkeilla pystyy lisäämään ja vähentämään tuotteiden määrää ostoskori-taulussa tai poistamaan ne taulusta 
+    kokonaan. Näkymä päivittyy jokaisen muutoksen myötä.<br>
 </div>
 <script src='../javascript/headerjs.js' ></script>
 

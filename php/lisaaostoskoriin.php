@@ -4,7 +4,7 @@ try{
 $yhteys = mysqli_connect("localhost", "trtkm25b3_5", "LoOcNj7g", "trtkm25b3_5");
 }
 catch(Exception $e){
-    header("Location:../html/yhteysvirhe.html");
+    header("Location:../../html/yhteysvirhe.html");
     exit;
 }
 
@@ -26,6 +26,6 @@ if ($rivi = mysqli_fetch_assoc($tulos)) {
     mysqli_stmt_execute($stmt2);
 }
 mysqli_close($yhteys);
-header("Location: ../html/ostoskori.html");
+header("Location: ../../html/ostoskori.html");
 exit;
 ?>

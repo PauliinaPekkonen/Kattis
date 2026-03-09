@@ -14,11 +14,11 @@
     <link rel='stylesheet' type='text/css' href="../css/header.css">
     <link rel="icon" type="image/jpg" href="../images/kattislogo.jpg">
     <link rel='stylesheet' type='text/css' href="../css/tilauslomake.css">
-    <link rel='stylesheet' type='text/css' href="../css/ostoskori.css">
     <title>Kattis - Lemmikkisi hyvinvointiin</title>
 </head>
 
-<body onload="lueOstoskori();">
+<body>
+
     <header>
         <nav class="navigointipalkki">
             <a href="index.html" target="Kattis">
@@ -30,22 +30,20 @@
                 <i class="fa fa-search"> </i>
             </div>
 
-
-            <ul class="navigointimenu">
-                <li class="nav-item">
-                    <a href="index.html" class="navigointilinkki">Etusivu</a>
-                </li>
-                <li class="nav-item">
-                    <a href='katalogi.html' class="navigointilinkki">Tuotteet</a>
-                </li>
-                <li class="nav-item">
-                    <a href='ostoskori.html' class="navigointilinkki">Ostoskori</a>
-                </li>
-                <li class="nav-item">
-                    <a href='tyonjako.html' class="navigointilinkki">Työnjako</a>
-                </li>
-            </ul>
-
+        <ul class="navigointimenu">
+        <li class="nav-item">
+        <a href="index.html" class="navigointilinkki">Etusivu</a>
+        </li>
+        <li class="nav-item">
+        <a href='katalogi.html' class="navigointilinkki">Tuotteet</a>
+        </li>
+        <li class="nav-item">
+        <a href='ostoskori.html' class="navigointilinkki">Ostoskori</a>
+        </li>
+        <li class="nav-item">
+        <a href='tyonjako.html' class="navigointilinkki">Työnjako</a>
+        </li>
+        </ul>
 
             <div class="oikea-puoli">
                 <button class="hakupainike-mobiili">
@@ -62,35 +60,63 @@
             </div>
         </nav>
     </header>
-    <!--Banneri-->
+
     <div class="info-banner">
         Ilmaiset toimitukset joulukuussa yli 55€:n ostoksiin 🎁
     </div>
 
-
     <script src="../javascript/etusivujs.js"></script>
-    <script src="../javascript/ostoskori.js"></script>
+    <script src="../javascript/tilauslomake.js"></script>
 
-    <!--Contentbox sisältää sivun varsinaisen sisällön ja keskittää sen leveillä näytöillä-->
     <div id="contentbox">
-        <h1>Ostoskori</h1>
-            <h2>Tuotteet</h2>
-            <table class="stacked">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th style="text-align: left;">tuote</th>
-                        <th>määrä</th>
-                        <th>hinta</th>
-                        <th>yhteensä</th>
-                    </tr>
-                </thead>
-                <tbody id="ostoskori">
-                    <!-- AJAX lisää rivit tähän-->
-                </tbody>
-            </table>
-            <a href="tilaus.html" class="button">Seuraava →</a>
+        <h1>Tilauslomake</h1>
+
+        <form id="tilauslomake" action="../PHP/tilaajantiedot.php" method="post">
+            <h2>Tilaaja</h2>
+            <section class="two_columns">
+                <article>
+                    <label for="orderer_first_name">Etunimi:</label><br>
+                    <input class="input_text" type="text" id="orderer_first_name" name="orderer_first_name" required>
+                </article>
+                <article>
+                    <label for="orderer_last_name">Sukunimi:</label><br>
+                    <input class="input_text" type="text" id="orderer_last_name" name="orderer_last_name" required>
+                </article>
+                <article>
+                    <label for="orderer_email">Email:</label><br>
+                    <input class="input_text" type="email" id="orderer_email" name="orderer_email" required>
+                </article>
+                <article>
+                    <label for="orderer_phone">Puhelinnumero:</label><br>
+                    <input class="input_text" type="tel" id="orderer_phone" name="orderer_phone" required placeholder="+358">
+                </article>
+            </section>
+
+            <h2>Toimitusosoite</h2>
+            <section class="two_columns">
+                <article class="merged_columns">
+                    <label for="delivery_address">Katuosoite:</label><br>
+                    <input class="input_text" type="text" id="delivery_address" name="delivery_address" required>
+                </article>
+                <article class="merged_columns">
+                    <label for="delivery_address2">Katuosoite 2:</label><br>
+                    <input class="input_text" type="text" id="delivery_address2" name="delivery_address2">
+                </article>
+                <article>
+                    <label for="delivery_post_code">Postinumero:</label><br>
+                    <input class="input_text" type="text" id="delivery_post_code" name="delivery_post_code" required>
+                </article>
+                <article>
+                    <label for="delivery_post_area">Postitoimipaikka:</label><br>
+                    <input class="input_text" type="text" id="delivery_post_area" name="delivery_post_area" required>
+                </article>
+            </section>
+
+            <a href="ostoskori.html" class="button">← Edellinen</a>
+            <button type="submit">Seuraava →</button>
+        </form>
     </div>
+
     <footer>
         <section class="contact" id="contact">
             <div class="container">

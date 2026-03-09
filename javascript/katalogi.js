@@ -29,7 +29,7 @@ kategoriat.forEach(nappi => {
 });
 window.onclick = function(e) {
     if (e.target.closest('.tuote-kortti')) {
-        window.location.href = "tuotesivu.html";
+        window.location.href = "tuote100002.html";
     }
 };
 });

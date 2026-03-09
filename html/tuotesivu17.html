@@ -8,12 +8,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
-<link rel='stylesheet' type='text/css' href="../css/etusivu.css">
 <link rel='stylesheet' type='text/css' href="../css/header.css">
+<link rel='stylesheet' type='text/css' href="../css/contact.css">
+<link rel='stylesheet' type='text/css' href="../css/tuotesivu.css">
 <link rel="icon" type="image/jpg" href="../images/kattislogo.jpg">
 <title>Kattis - Lemmikkisi hyvinvointiin</title>
 </head>
-<body>
+<body onload="lueHinta();">
+    <script>
+        let tuotteet=null;
+        function lueHinta() {
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    tuotteet=JSON.parse(this.responseText);
+                    tuotteenHinta(tuotteet)
+                }
+            };
+            xmlhttp.open("GET", "../ostoskori/luetuotteet.php", true);
+            xmlhttp.send();
+        }
+        function tuotteenHinta(tuotteet) {
+            let tuotenro = 100007;
+            let tuote = tuotteet.find(t => t.tuotenro == tuotenro);
+            if (tuote) {
+                document.getElementById("hinta").textContent = tuote.hinta;
+            }
+        }
+    </script>
 
 <header>
     <nav class="navigointipalkki">
@@ -35,10 +57,10 @@
         <a href='katalogi.html' class="navigointilinkki">Tuotteet</a>
         </li>
         <li class="nav-item">
-        <a href='ostoskori.html' class="navigointilinkki">Ostoskori</a>
+        <a href='tilauslomake.html' class="navigointilinkki">Tilaus</a>
         </li>
         <li class="nav-item">
-        <a href='tyonjako.html' class="navigointilinkki">Työnjako</a>
+        <a href='#contact' class="navigointilinkki">Contact</a>
         </li>
     </ul>
    
@@ -63,71 +85,61 @@
   Ilmaiset toimitukset joulukuussa yli 55€:n ostoksiin 🎁
 </div>
 
-<main>
-<div id="contentbox">
-<!---HERO -->
-<section class="hero-section">
-<div class="section-content">
-<div class="hero-details">
-    <h2 class="otsikko">Lemmikkisi hyvinvointiin</h2>
-    <h3 class="alaotsikko">Lorem ipsum dolor sit</h3>
-    <p class="kuvaus">Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-    Asperiores magni, sapiente culpa ratione cupiditate in deserunt quisquam 
-    deleniti harum! Nostrum necessitatibus atque repellat officiis ab nisi 
-    magni laborum iusto quidem?</p>
-    <div class="buttons">
-    <a href="tilauslomake.html" class="button tilaa-nyt">Tilaa nyt</a>
-    <a href="#contact" class="button ota-yhteytta">Ota yhteyttä</a>
-    </div>
-  </div>
-  <div class="hero-kuva">       
-  <img src="../images/herokissa.png" alt="Oranssi kissa hiirilelun kanssa" class="hero-img">
-</div>
-</div>
-</section>
+<!-- Tästä alkaa tuotesivu -->
 
-<!--Suosituimmat tuotteet -->
-<section class = "tuotevalikko-osio">
-    <h2 class = "valikon-otsikko">Suosituimmat tuotteet</h2>
-    <div class = "valikon-sisalto">
-        <ul class = "tuotelista">
-            <li class = "tuote">
-                <a href="tuote100002.html" class="tuotelinkki">
-                <img src="../images/hiekkalaatikko1.jpg" alt="Kissan hiekkalaatikko" class="tuotekuva">
-                </a>
-                <h3>
-                <a href="tuote100002.html" class="tuotelinkki">Hiekkalaatikko</a>
-                </h3>
-                <p class="hinta">100€</p>
-                <p class="tuotekuvaus">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                
-            </li>
-              <li class = "tuote">
-                <a href="katalogi.html" class = "tuotelinkki">
-                <img src = "../images/minttuhiiri.jpg" alt="Kissan lelu minttuhiiri" class = "tuotekuva">
-                </a>
-                <h3>
-                <a href='katalogi.html' class="tuotelinkki">Minttuhiiri</a>
-                </h3>
-                <p class="hinta">7€</p>
-                <p class = "tuotekuvaus">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </li>
-              <li class = "tuote">
-                <a href ="tuote100007.html" class="tuotelinkki">
-                <img src = "../images/kissanpuu.jpg" alt="Kissan raapimapuu" class = "tuotekuva">
-                </a>
-                <h3>
-                <a href='tuote100007.html' class="tuotelinkki">Kissanpuu</a>
-                </h3>
-                <p class="hinta">50€</p>
-                <p class = "tuotekuvaus">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </li>
-        </ul>
+<div class="small-container tuotesivu">
+    <div class="rivi">
+       <!-- Iso tuotekuva -->
+        <div class="col-2">
+            <img src="../images/kissanpuu.jpg" alt="kissanpuu" width="100%" id="TuoteImg">
+             <!-- Pikkukuvat -->
+        </div>
+        <!-- Sivupolku, tuotteen tietoja, pudotusvalikko ja lisää ostoskoriin linkki -->
+        <div class="col-2">
+            <p>Etusivu/Kissat/Kissanpuu</p>
+            <br>
+            <h1>Kissanpuu</h1>
+            <br>
+            <h2>Hinta: <span id="hinta"></span></h2>
+            <br>
+            <form id=lisaa_koriin action="../ostoskori/lisaaostoskoriin.php" method="post">
+                <input type="hidden" name="tuotenro" value="100007">
+                <h2>Määrä: 
+                    <input type="number" name="maara" value="1" min="1">
+                </h2>
+                <input class="button" type="submit" name="lisaa_koriin" value="Lisää ostoskoriin">
+            </form>
+            <h3>Tuotekuvaus</h3>
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil illo perferendis nam cum accusantium ab eligendi mollitia pariatur dolorem tenetur debitis minima expedita voluptatum, placeat vero? Aliquid laudantium expedita labore. </p>
+        </div>
     </div>
-</div>
-</section>
-</main>   
+ </div>
+<br>
+  <!-- TIetoja muista tuotteista -->
+    <div class="small-container">
+        <h2>Muita suosittuja tuotteita</h2>
+        <br>
+        <div class="rivi">
 
+            <div class="col-3">
+                <img src="../images/hiekkalaatikko2.jpg" width="30%">
+                <h3>Hiekkalaatikko</h3> 
+                <p>100.00€</p>
+            </div>
+            <div class="col-3">
+                <img src="../images/minttuhiiri.jpg" width="30%">
+                <h3>Minttuhiiri</h3> 
+                <p>7.00€</p>
+            </div>
+              <div class="col-3">
+                <img src="../images/valjaat.jpg" width="30%">
+                <h3>Valjaat</h3> 
+                <p>35.00€</p>
+            </div>
+        </div>    
+    </div>
+  <!-- Footer alkaa-->
 <footer>
 <section class = "contact" id="contact">
     <div class = "container">
@@ -170,5 +182,6 @@
 </section>    
 </footer>
 <script src='../javascript/headerjs.js' ></script>
+
 </body>
 </html>

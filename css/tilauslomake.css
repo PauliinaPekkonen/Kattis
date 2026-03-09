@@ -98,12 +98,6 @@ table {
   font-weight: 600;
 }
 
-/*painikkeiden erikoismuotoilut (leveys ja sijainti) muu muotoilu tulee "yhteinen.css"-tiedostosta*/
-.button {
-  width: 150px;
-  display: inline-block;
-}
-
 /*"esimuotoilu" tuotetaulukolle, myöhemmin erikseen määrittelyt leveämmälle ja kapeammalle näytölle*/
 .stacked {
   width: calc(100% - 20px);

@@ -1,0 +1,9 @@
+.maara {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.maara button {
+    margin: 0 6px;
+}
