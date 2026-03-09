@@ -1,15 +1,13 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try{
-$yhteys = mysqli_connect("localhost", "trtkm25b_5", "LoOcNj7g", "wp_trtkm25b_5");
+$yhteys = mysqli_connect("localhost", "trtkm25b3_5", "LoOcNj7g", "trtkm25b3_5");
 }
 catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");
     exit;
 }
-?>
 
-<?php
 $tuotenro = $_POST["tuotenro"];
 $maara = $_POST["maara"];
 $sql = "select hinta, tuotenimi from tuote where tuotenro = ?";
@@ -28,4 +26,6 @@ if ($rivi = mysqli_fetch_assoc($tulos)) {
     mysqli_stmt_execute($stmt2);
 }
 mysqli_close($yhteys);
+header("Location: ../html/ostoskori.html");
+exit;
 ?>

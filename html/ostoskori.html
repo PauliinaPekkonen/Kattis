@@ -18,28 +18,6 @@
 </head>
 
 <body onload="lueOstoskori();">
-    <script>
-        let tuotteet=null;
-        function lueOstoskori() {
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    ostoskori=JSON.parse(this.responseText);
-                    tulostaOstoskori(ostoskori)
-                }
-            };
-            xmlhttp.open("GET", "../ostoskori/ostoskori.php", true);
-            xmlhttp.send();
-        }
-        function tulostaOstoskori(ostoskori) {
-            let text = "<table class='stacked'>";
-            for (x in ostoskori) {
-                text+="<tr><td>" + ostoskori[x].tuotenimi + "</td><td>" + ostoskori[x].maara + "</td><td>" + ostoskori[x].hinta + "</td></tr>";
-            }
-                document.getElementById("ostoskori").innerHTML = text;
-        }
-    </script>
-
     <header>
         <nav class="navigointipalkki">
             <a href="index.html" target="Kattis">
@@ -90,22 +68,27 @@
 
 
     <script src="../javascript/etusivujs.js"></script>
-    <script src="../javascript/tilauslomake.js"></script>
+    <script src="../javascript/ostoskori.js"></script>
 
     <!--Contentbox sisältää sivun varsinaisen sisällön ja keskittää sen leveillä näytöillä-->
     <div id="contentbox">
-        <h1>Tilauslomake</h1>
-        <!--resetTotals()-metodi nollaa lomakkeelta myös sille javascriptilla lasketut arvot-->
-        <form id="tilauslomake" action="../ostoskori/ostoskori.php" method="post"
-            onreset="resetTotals();">
+        <h1>Ostoskori</h1>
             <h2>Tuotteet</h2>
-            <div id="ostoskori"></div>
-                <input class="button" type="submit" value="-" formaction="../ostoskori/ostoskori.php">
-                <div id="quantity1" name="quantity1">0,00</div>
-                <input class="button" type="submit" value="+" formaction="../ostoskori/luetuotteet.php">
-            <input class="button" type="submit" name="ok" value="Lähetä tilaus">
-            <input class="button" type="reset" value="Tyhjennä lomake">
-        </form>
+            <table class="stacked">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th style="text-align: left;">tuote</th>
+                        <th>määrä</th>
+                        <th>hinta</th>
+                        <th>yhteensä</th>
+                    </tr>
+                </thead>
+                <tbody id="ostoskori">
+                    <!-- AJAX lisää rivit tähän-->
+                </tbody>
+            </table>
+            <input class="button" type="submit" name="ok" value="Seuraava">
     </div>
     <footer>
         <section class="contact" id="contact">

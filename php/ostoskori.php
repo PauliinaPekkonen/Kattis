@@ -1,15 +1,13 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try{
-$yhteys = mysqli_connect("localhost", "trtkm25b_5", "LoOcNj7g", "wp_trtkm25b_5");
+$yhteys = mysqli_connect("localhost", "trtkm25b3_5", "LoOcNj7g", "trtkm25b3_5");
 }
 catch(Exception $e){
     header("Location:../html/yhteysvirhe.html");
     exit;
 }
-?>
 
-<?php
 $tulos = mysqli_query($yhteys, "select * from ostoskori");
 while ($rivi=mysqli_fetch_object($tulos)) {
     $tuote = new class{};
@@ -22,4 +20,5 @@ while ($rivi=mysqli_fetch_object($tulos)) {
 }
 mysqli_close($yhteys);
 print json_encode($tuotteet);
+exit;
 ?>
